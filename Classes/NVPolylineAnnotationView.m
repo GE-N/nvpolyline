@@ -28,8 +28,8 @@ const CGFloat POLYLINE_WIDTH = 4.0;
 - (id) initWithPolylineView:(NVPolylineAnnotationView *)polylineView
 					mapView:(MKMapView *)mapView {
 	if (self = [super init]) {
-		_polylineView = [polylineView retain];
-		_mapView = [mapView retain];
+		_polylineView = polylineView;
+		_mapView = mapView;
 		
 		self.backgroundColor = [UIColor clearColor];
 		self.clipsToBounds = NO;
@@ -65,11 +65,6 @@ const CGFloat POLYLINE_WIDTH = 4.0;
 	}
 }
 
--(void) dealloc {
-	[super dealloc];
-	[_mapView release];
-	[_polylineView release];
-}
 
 @end
 
@@ -81,13 +76,13 @@ const CGFloat POLYLINE_WIDTH = 4.0;
     if (self = [super init]) {
         self.annotation = annotation;
 		
-		_mapView = [mapView retain];
+		_mapView = mapView;
 		
 		self.backgroundColor = [UIColor clearColor];
 		self.clipsToBounds = NO;
 		self.frame = CGRectMake(0.0, 0.0, _mapView.frame.size.width, _mapView.frame.size.height);
 
-		_internalView = [[[NVPolylineInternalAnnotationView alloc] initWithPolylineView:self mapView:_mapView] autorelease];
+		_internalView = [[NVPolylineInternalAnnotationView alloc] initWithPolylineView:self mapView:_mapView];
 		[self addSubview:_internalView];
     }
     return self;
@@ -132,10 +127,5 @@ const CGFloat POLYLINE_WIDTH = 4.0;
 	[super setCenterOffset:centerOffset];
 }
 
-- (void)dealloc {
-	[_mapView release];
-	
-    [super dealloc];
-}
 
 @end

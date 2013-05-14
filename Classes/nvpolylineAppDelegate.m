@@ -22,11 +22,6 @@
 }
 
 
-- (void)dealloc {
-    [mapViewController release];
-	[window release];
-    [super dealloc];
-}
 
 
 @end

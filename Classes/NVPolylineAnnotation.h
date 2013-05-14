@@ -18,6 +18,6 @@
 
 -(id) initWithPoints:(NSArray*) points mapView:(MKMapView *)mapView;
 
-@property (nonatomic, retain) NSArray* points;
+@property (nonatomic, strong) NSArray* points;
 
 @end

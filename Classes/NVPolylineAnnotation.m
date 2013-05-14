@@ -17,7 +17,7 @@
 	self = [super init];
 	
 	_points = [[NSArray alloc] initWithArray:points];
-	_mapView = [mapView retain];
+	_mapView = mapView;
 		
 	return self;
 }
@@ -26,11 +26,5 @@
 	return [_mapView centerCoordinate];
 }
 
--(void) dealloc
-{	
-	[super dealloc];
-	[_mapView release];
-	[_points release];
-}
 
 @end
