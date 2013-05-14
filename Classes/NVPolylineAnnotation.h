@@ -10,14 +10,16 @@
 #import <MapKit/MapKit.h>
 
 
-@interface NVPolylineAnnotation : NSObject<MKAnnotation> {
-	NSMutableArray* _points; 
-	MKMapView* _mapView;
+@interface NVPolylineAnnotation : NSObject <MKAnnotation>
 
-}
+-(id) initWithPoints:(NSArray*)points mapView:(MKMapView *)mapView;
 
--(id) initWithPoints:(NSArray*) points mapView:(MKMapView *)mapView;
+@property (readonly) NSArray *points;
 
-@property (nonatomic, strong) NSArray* points;
+/**
+ Route line color.
+ */
+
+@property (strong) UIColor *routeColor;
 
 @end

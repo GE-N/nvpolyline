@@ -96,6 +96,7 @@
 					   [[CLLocation alloc] initWithLatitude:45.48679000000001 longitude:-73.59443]];
 					   
 	NVPolylineAnnotation *annotation = [[NVPolylineAnnotation alloc] initWithPoints:points mapView:_mapView];
+    annotation.routeColor = [UIColor colorWithRed:1.000 green:0.035 blue:0.000 alpha:1.000];
 	[_mapView addAnnotation:annotation];
 	
 	// use some magic numbers to create a map region

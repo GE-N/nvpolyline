@@ -46,7 +46,15 @@ const CGFloat POLYLINE_WIDTH = 4.0;
 		CGContextRef context = UIGraphicsGetCurrentContext(); 
 		
 		CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
+        if (annotation.routeColor) {
+            CGContextSetStrokeColorWithColor(context, annotation.routeColor.CGColor);
+        }
+        
 		CGContextSetRGBFillColor(context, 0.0, 0.0, 1.0, 1.0);
+        if (annotation.routeColor) {
+            CGContextSetFillColorWithColor(context, annotation.routeColor.CGColor);
+        }
+        
 		CGContextSetAlpha(context, 0.5);
 		
 		CGContextSetLineWidth(context, POLYLINE_WIDTH);

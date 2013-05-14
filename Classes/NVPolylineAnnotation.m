@@ -9,15 +9,21 @@
 #import "NVPolylineAnnotation.h"
 
 
+@interface NVPolylineAnnotation ()
+
+@property (strong) MKMapView *mapView;
+@property (strong) NSMutableArray* points_marray;
+
+@end
+
 @implementation NVPolylineAnnotation
 
-@synthesize points = _points; 
-
 -(id) initWithPoints:(NSArray*) points mapView:(MKMapView *)mapView {
-	self = [super init];
 	
-	_points = [[NSArray alloc] initWithArray:points];
-	_mapView = mapView;
+    if (self = [super init]) {
+        _points_marray = [[NSMutableArray alloc] initWithArray:points];
+        _mapView = mapView;
+    }
 		
 	return self;
 }
@@ -26,5 +32,11 @@
 	return [_mapView centerCoordinate];
 }
 
+#pragma mark - Property methods
+
+- (NSArray *)points
+{
+    return [NSArray arrayWithArray:self.points_marray];
+}
 
 @end
